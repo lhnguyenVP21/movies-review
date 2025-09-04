@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 const Hero = ({ movies }) => {
   const navigate = useNavigate();
 
-  function reviews(movieId) {
+  const handleReviews = (movieId) => {
     navigate(`/Reviews/${movieId}`);
-  }
+  };
 
   const settings = {
     dots: true,
@@ -54,7 +54,7 @@ const Hero = ({ movies }) => {
                     <div className="movie-review-button-container">
                       <button
                         className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                        onClick={() => reviews(movie.imdbId)}
+                        onClick={() => handleReviews(movie.imdbId)}
                       >
                         Reviews
                       </button>

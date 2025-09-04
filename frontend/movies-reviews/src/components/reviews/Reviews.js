@@ -3,8 +3,6 @@ import api from '../../api/axiosConfig';
 import { useParams } from 'react-router-dom';
 import ReviewForm from '../reviewForm/ReviewForm';
 
-import React from 'react';
-
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
   const revText = useRef();
   let params = useParams();
@@ -37,24 +35,16 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
         imdbId: movieId 
       });
 
-      console.log("API Response:", response.data);
-
       const newReview = { 
         body: rev.value,
         id: Date.now() 
       };
 
-      const updatedReviews = [...reviews, newReview];
-      
-      console.log("Updated reviews:", updatedReviews);
+      const currentReviews = reviews || [];
+      const updatedReviews = [...currentReviews, newReview];
 
-      // Clear the textarea
       rev.value = "";
-
-      // Update state
       setReviews(updatedReviews);
-      
-      console.log("Review added successfully!");
     }
     catch (err) {
       console.error("Error adding review:", err);
