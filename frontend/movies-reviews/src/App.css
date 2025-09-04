@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  box-sizing: border-box;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  padding:0;
+  margin:0;
 }
-
-.App-header {
-  background-color: #282c34;
+.App{
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: black;
+  color:white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Movie Carousel Styles */
+.movie-carousel-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.movie-card-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.movie-card {
+  width: 100%;
+  height: 100vh;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.movie-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.movie-poster {
+  margin-bottom: 1rem;
+}
+
+.movie-poster img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.movie-title h4 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.App-link {
-  color: #61dafb;
+.movie-buttons-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.play-button-icon-container {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.play-button-icon-container:hover {
+  transform: scale(1.1);
+}
+
+.movie-review-button-container button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.movie-review-button-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Slick Slider Customization */
+.slick-slider {
+  width: 100%;
+  height: 100vh;
+}
+
+.slick-list {
+  height: 100vh;
+}
+
+.slick-track {
+  height: 100vh;
+}
+
+.slick-slide {
+  height: 100vh;
+}
+
+.slick-slide > div {
+  height: 100vh;
+}
+
+.slick-dots {
+  bottom: 30px;
+  z-index: 10;
+}
+
+.slick-dots li button:before {
+  color: white;
+  font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #3b82f6;
 }
